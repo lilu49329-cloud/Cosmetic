@@ -1,0 +1,27 @@
+{% extends 'products/base.html' %}
+{% block title %}Tra cứu đơn hàng | Cosmetic Shop{% endblock %}
+{% block content %}
+<h1>Tra cứu đơn hàng</h1>
+<p>Nhập mã đơn hàng để kiểm tra trạng thái:</p>
+<form method="get" action="">
+	<div class="input-group mb-3">
+		<input type="text" class="form-control" name="order_id" placeholder="Nhập mã đơn hàng" required>
+		<button class="btn btn-primary" type="submit">Tra cứu</button>
+	</div>
+</form>
+{% if order %}
+	<div class="card mt-4">
+		<div class="card-body">
+			<h5 class="card-title">Đơn hàng #{{ order.id }}</h5>
+			<p>Khách hàng: {{ order.customer.name }}</p>
+			<p>Tổng tiền: {{ order.total_amount|floatformat:0 }}₫</p>
+			<p>Trạng thái: {{ order.get_status_display }}</p>
+		</div>
+	</div>
+{% elif order_id %}
+	<div class="alert alert-danger mt-4">Không tìm thấy đơn hàng với mã <b>{{ order_id }}</b>.</div>
+{% endif %}
+<div class="mt-4 text-center">
+	<a href="/" class="btn btn-outline-primary">← Về trang chủ</a>
+</div>
+{% endblock %}
