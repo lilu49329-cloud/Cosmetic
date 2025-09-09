@@ -1,0 +1,21 @@
+{% extends 'products/base.html' %}
+{% block title %}Tài khoản của tôi | Cosmetic Shop{% endblock %}
+{% block content %}
+<div class="container my-4 py-4" style="background: #221b29; border-radius: 1rem; color: #fff0f6; box-shadow: 0 2px 8px #ff69b4;">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="p-4 mb-4 text-center" style="background: linear-gradient(90deg, #ff69b4 0%, #18141c 100%); border-radius: 1rem; color: #fff0f6;">
+                <h2 style="font-weight:900; letter-spacing:2px; color:#ff69b4;">Chào mừng, {{ user.get_full_name|default:user.username }}!</h2>
+                <div class="card mt-3" style="background:#18141c; color:#fff0f6; border-radius:0.7rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color:#ff69b4;">Thông tin tài khoản</h5>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                        <p><strong>Ngày tham gia:</strong> {{ user.date_joined|date:"d/m/Y" }}</p>
+                        <a href="/products/orders/" class="btn btn-auth">Xem đơn hàng của bạn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

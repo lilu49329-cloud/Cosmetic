@@ -1,0 +1,32 @@
+{% extends 'products/base.html' %}
+{% block title %}Khuyến mãi | Cosmetic Shop{% endblock %}
+{% block content %}
+<div class="container my-4 py-4" style="background: linear-gradient(90deg,#ff69b4 0%,#221b29 100%); border-radius: 1rem; color: #fff; box-shadow: 0 2px 8px #ff69b4;">
+    <h1 class="mb-4" style="font-weight:bold;letter-spacing:2px;">Khuyến mãi HOT</h1>
+    <p>Khám phá các sản phẩm đang giảm giá cực sốc!</p>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                {% else %}
+                    <img src="https://img.icons8.com/color/96/ff69b4/lipstick.png" class="card-img-top" alt="{{ product.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">Thương hiệu: {{ product.brand }}</p>
+                    <p class="card-text">Giá: <span class="fw-bold">{{ product.price|floatformat:0 }}₫</span></p>
+                    <a href="/products/{{ product.id }}/" class="btn btn-auth">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>Hiện chưa có sản phẩm khuyến mãi nào.</p>
+        {% endfor %}
+    </div>
+    <div class="mt-4 text-center">
+        <a href="{% url 'home' %}" class="btn btn-outline-primary">← Về trang chủ</a>
+    </div>
+</div>
+{% endblock %}
