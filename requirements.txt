@@ -1,5 +1,9 @@
-Django>=5.2.5
-gunicorn
-psycopg2-binary
+Pillow
 whitenoise
 dj-database-url
+psycopg2-binary
+gunicorn
+Django>=5.2.5
+sqlparse
+asgiref
+pytz
