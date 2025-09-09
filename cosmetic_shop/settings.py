@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-_77a*ur8re839htq8f+vxif08s_-%o+x+j64r#nmf19m=(9l+w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cosmeticshop.com', 'www.cosmeticshop.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['cosmetic-1-8j7w.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
